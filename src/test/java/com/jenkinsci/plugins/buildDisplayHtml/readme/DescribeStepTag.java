@@ -1,11 +1,11 @@
-package com.jenkinsci.plugins.badge.readme;
+package com.jenkinsci.plugins.buildDisplayHtml.readme;
 
 import com.hubspot.jinjava.interpret.JinjavaInterpreter;
 import com.hubspot.jinjava.lib.tag.Tag;
 import com.hubspot.jinjava.tree.TagNode;
 import com.hubspot.jinjava.util.HelperStringTokenizer;
-import com.jenkinsci.plugins.badge.annotations.OptionalParam;
-import com.jenkinsci.plugins.badge.annotations.Param;
+import com.jenkinsci.plugins.buildDisplayHtml.annotations.OptionalParam;
+import com.jenkinsci.plugins.buildDisplayHtml.annotations.Param;
 import hudson.Extension;
 import org.apache.commons.lang3.builder.CompareToBuilder;
 import org.jenkinsci.plugins.workflow.steps.StepDescriptor;

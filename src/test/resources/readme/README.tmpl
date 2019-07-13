@@ -16,9 +16,8 @@ Puts a badge with a short text
 
 // creates an entry in the build summary page and returns a summary object corresponding to this entry.
 
-{% describe_step  com.jenkinsci.plugins.badge.dsl.CreateSummaryStep %}
+{% describe_step  com.jenkinsci.plugins.buildDisplayHtml.dsl.BuildDisplayHtmlStep %}
 
 def summary = createSummary()
-summary.appendText(text, escapeHtml)
-summary.appendText(text, escapeHtml, bold, italic, color)
+summary.appendText(htmlText)
 ```

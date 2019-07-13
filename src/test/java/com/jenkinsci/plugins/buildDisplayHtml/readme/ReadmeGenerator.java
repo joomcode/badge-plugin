@@ -1,5 +1,4 @@
-package com.jenkinsci.plugins.badge.readme;
-
+package com.jenkinsci.plugins.buildDisplayHtml.readme;
 
 import com.google.common.collect.Maps;
 import com.google.common.io.Resources;

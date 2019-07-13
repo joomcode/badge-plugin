@@ -16,26 +16,26 @@ Puts a badge with a short text
 
 // creates an entry in the build summary page and returns a summary object corresponding to this entry.
 
-// createSummary
+// buildDisplayHtml
 // ------------------------------------------
 
 /**
  * minimal params
  * 
+ * summaryHtml: A html which will be appended to build summary page
  */
-createSummary()
+buildDisplayHtml(summaryHtml: <summaryHtml>)
 
 /**
  * all params
  * 
- * id: (optional) The id for this badge. This id can be used to selectively delete badges.
- * text: (optional) The title text for this summary
+ * summaryHtml: A html which will be appended to build summary page
+ * summaryHtml: (optional) A html which will be appended to build summary page
  */
-createSummary(id: <id>, text: <text>)
+buildDisplayHtml(summaryHtml: <summaryHtml>, summaryHtml: <summaryHtml>)
 
 
 def summary = createSummary()
-summary.appendText(text, escapeHtml)
-summary.appendText(text, escapeHtml, bold, italic, color)
+summary.appendText(htmlText)
 ```
 

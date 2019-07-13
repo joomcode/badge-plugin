@@ -1,4 +1,4 @@
-package com.jenkinsci.plugins.badge.readme;
+package com.jenkinsci.plugins.buildDisplayHtml.readme;
 
 import com.hubspot.jinjava.interpret.JinjavaInterpreter;
 import com.hubspot.jinjava.lib.tag.Tag;

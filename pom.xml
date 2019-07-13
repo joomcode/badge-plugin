@@ -6,26 +6,16 @@
         <version>3.2</version>
     </parent>
 
-    <name>Badge</name>
-    <description>Add Badges for a build and extend the build summary</description>
-    <groupId>org.jenkins-ci.plugins</groupId>
-    <artifactId>badge</artifactId>
-    <version>1.9-SNAPSHOT</version>
+    <name>BuildDisplayHtml jenkinsplugin</name>
+    <description>Add Html to a jenkins build display page</description>
+    <artifactId>build-display-html</artifactId>
+    <version>0.5-SNAPSHOT</version>
     <packaging>hpi</packaging>
-    <url>http://wiki.jenkins-ci.org/display/JENKINS/Badge+Plugin</url>
 
     <developers>
         <developer>
-            <id>bakito</id>
-            <name>Marc Brugger</name>
-        </developer>
-        <developer>
-            <id>wolfs</id>
-            <name>Stefan Wolf</name>
-        </developer>
-        <developer>
-            <id>beryx</id>
-            <name>Serban Iordache</name>
+            <id>dmitring</id>
+            <name>Dmitry Ivanov</name>
         </developer>
     </developers>
 
@@ -43,13 +33,6 @@
         <workflow-step-api-plugin.version>2.14</workflow-step-api-plugin.version>
         <workflow-cps-plugin.version>2.45</workflow-cps-plugin.version>
     </properties>
-
-    <scm>
-        <connection>scm:git:ssh://github.com/jenkinsci/badge-plugin.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/jenkinsci/badge-plugin.git</developerConnection>
-        <url>https://github.com/jenkinsci/badge-plugin</url>
-        <tag>HEAD</tag>
-    </scm>
 
     <build>
         <plugins>
@@ -73,7 +56,7 @@
                         <configuration>
                             <includeProjectDependencies>true</includeProjectDependencies>
                             <classpathScope>test</classpathScope>
-                            <mainClass>com.jenkinsci.plugins.badge.readme.ReadmeGenerator</mainClass>
+                            <mainClass>com.jenkinsci.plugins.buildDisplayHtml.readme.ReadmeGenerator</mainClass>
                         </configuration>
                     </execution>
                 </executions>
