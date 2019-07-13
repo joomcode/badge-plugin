@@ -227,21 +227,19 @@ Puts a badge with a short text
 /**
  * minimal params
  * 
- * icon: The icon for this summary
  */
-createSummary(icon: <icon>)
+createSummary()
 
 /**
  * all params
  * 
- * icon: The icon for this summary
  * id: (optional) The id for this badge. This id can be used to selectively delete badges.
  * text: (optional) The title text for this summary
  */
-createSummary(icon: <icon>, id: <id>, text: <text>)
+createSummary(id: <id>, text: <text>)
 
 
-def summary = createSummary(icon)
+def summary = createSummary()
 summary.appendText(text, escapeHtml)
 summary.appendText(text, escapeHtml, bold, italic, color)
 ```

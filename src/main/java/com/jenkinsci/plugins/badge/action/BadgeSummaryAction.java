@@ -40,12 +40,9 @@ public class BadgeSummaryAction extends AbstractAction {
   private static final long serialVersionUID = 1L;
   private static final Logger LOGGER = Logger.getLogger(BadgeSummaryAction.class.getName());
 
-  private final String iconPath;
   private String summaryText = "";
 
-  public BadgeSummaryAction(String iconPath) {
-    this.iconPath = iconPath;
-  }
+  public BadgeSummaryAction() { }
 
   /* Action methods */
   public String getUrlName() {
@@ -58,11 +55,6 @@ public class BadgeSummaryAction extends AbstractAction {
 
   public String getIconFileName() {
     return null;
-  }
-
-  @Exported
-  public String getIconPath() {
-    return iconPath;
   }
 
   public String getRawText() {

@@ -81,7 +81,7 @@ Puts a badge with a short text
 
 {% describe_step  com.jenkinsci.plugins.badge.dsl.CreateSummaryStep %}
 
-def summary = createSummary(icon)
+def summary = createSummary()
 summary.appendText(text, escapeHtml)
 summary.appendText(text, escapeHtml, bold, italic, color)
 ```

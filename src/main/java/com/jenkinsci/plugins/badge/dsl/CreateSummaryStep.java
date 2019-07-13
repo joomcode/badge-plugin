@@ -41,17 +41,10 @@ import org.kohsuke.stapler.DataBoundSetter;
  */
 public class CreateSummaryStep extends AbstractStep {
 
-  private final String icon;
   private String text;
 
   @DataBoundConstructor
-  public CreateSummaryStep(@Param(name = "icon", description = "The icon for this summary") String icon) {
-    this.icon = icon;
-  }
-
-  public String getIcon() {
-    return icon;
-  }
+  public CreateSummaryStep() { }
 
   public String getText() {
     return text;
@@ -65,7 +58,7 @@ public class CreateSummaryStep extends AbstractStep {
 
   @Override
   public StepExecution start(StepContext context) {
-    return new Execution(icon, text, getId(), context);
+    return new Execution(text, getId(), context);
   }
 
   @Extension
@@ -86,22 +79,19 @@ public class CreateSummaryStep extends AbstractStep {
   public static class Execution extends SynchronousStepExecution<BadgeSummaryAction> {
 
     @SuppressFBWarnings(value = "SE_TRANSIENT_FIELD_NOT_RESTORED", justification = "Only used when starting.")
-    private transient final String icon;
-    @SuppressFBWarnings(value = "SE_TRANSIENT_FIELD_NOT_RESTORED", justification = "Only used when starting.")
     private transient final String text;
     @SuppressFBWarnings(value = "SE_TRANSIENT_FIELD_NOT_RESTORED", justification = "Only used when starting.")
     private final String id;
 
-    Execution(String icon, String text, String id, StepContext context) {
+    Execution(String text, String id, StepContext context) {
       super(context);
-      this.icon = icon;
       this.text = text;
       this.id = id;
     }
 
     @Override
     protected BadgeSummaryAction run() throws Exception {
-      BadgeSummaryAction action = new BadgeSummaryAction(icon);
+      BadgeSummaryAction action = new BadgeSummaryAction();
       if (StringUtils.isNotBlank(text)) {
         action.appendText(text);
       }

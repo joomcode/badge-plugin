@@ -75,16 +75,13 @@ public class CreateSummaryStepTest extends AbstractBadgeTest {
   }
 
   private BadgeSummaryAction createSummary(String script) throws Exception {
-    String icon = randomUUID().toString();
-
     WorkflowJob p = r.jenkins.createProject(WorkflowJob.class, "p");
-    p.setDefinition(new CpsFlowDefinition("def summary = createSummary(\"" + icon + "\")\n" + script, true));
+    p.setDefinition(new CpsFlowDefinition("def summary = createSummary()\n" + script, true));
     WorkflowRun b = r.assertBuildStatusSuccess(p.scheduleBuild2(0));
     List<BadgeSummaryAction> summaryActions = b.getActions(BadgeSummaryAction.class);
     assertEquals(1, summaryActions.size());
 
     BadgeSummaryAction action = summaryActions.get(0);
-    assertTrue(action.getIconPath().endsWith(icon));
     return action;
   }
 
@@ -94,13 +91,12 @@ public class CreateSummaryStepTest extends AbstractBadgeTest {
     String text = randomUUID().toString();
 
     WorkflowJob p = r.jenkins.createProject(WorkflowJob.class, "p");
-    p.setDefinition(new CpsFlowDefinition("def summary = createSummary(icon:\"" + icon + "\", text:\"" + text + "\")", true));
+    p.setDefinition(new CpsFlowDefinition("def summary = createSummary(text:\"" + text + "\")", true));
     WorkflowRun b = r.assertBuildStatusSuccess(p.scheduleBuild2(0));
     List<BadgeSummaryAction> summaryActions = b.getActions(BadgeSummaryAction.class);
     assertEquals(1, summaryActions.size());
 
     BadgeSummaryAction action = summaryActions.get(0);
-    assertTrue(action.getIconPath().endsWith(icon));
     assertEquals(text, action.getText());
   }
 }
