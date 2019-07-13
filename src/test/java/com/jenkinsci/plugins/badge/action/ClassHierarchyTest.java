@@ -38,25 +38,5 @@ public class ClassHierarchyTest {
     assertTrue(AbstractAction.class.isAssignableFrom(BadgeSummaryAction.class));
 
     assertFalse(BuildBadgeAction.class.isAssignableFrom(BadgeSummaryAction.class));
-    assertFalse(AbstractBadgeAction.class.isAssignableFrom(BadgeSummaryAction.class));
   }
-
-  @Test
-  public void badgeAction() {
-    assertTrue(Action.class.isAssignableFrom(BadgeAction.class));
-    assertTrue(AbstractAction.class.isAssignableFrom(BadgeAction.class));
-
-    assertTrue(BuildBadgeAction.class.isAssignableFrom(BadgeAction.class));
-    assertTrue(BuildBadgeAction.class.isAssignableFrom(BadgeAction.class));
-  }
-
-  @Test
-  public void htmlBadgeAction() {
-    assertTrue(Action.class.isAssignableFrom(HtmlBadgeAction.class));
-    assertTrue(AbstractAction.class.isAssignableFrom(HtmlBadgeAction.class));
-
-    assertTrue(BuildBadgeAction.class.isAssignableFrom(HtmlBadgeAction.class));
-    assertTrue(BuildBadgeAction.class.isAssignableFrom(HtmlBadgeAction.class));
-  }
-
 }

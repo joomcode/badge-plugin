@@ -23,7 +23,6 @@
  */
 package com.jenkinsci.plugins.badge;
 
-import com.jenkinsci.plugins.badge.action.BadgeAction;
 import com.jenkinsci.plugins.badge.action.BadgeSummaryAction;
 import hudson.Extension;
 import hudson.model.Action;
@@ -67,60 +66,4 @@ public class BadgePlugin extends GlobalConfiguration {
     save();
   }
 
-  public void doRemoveBadges(StaplerRequest req, StaplerResponse rsp) throws IOException {
-    removeActions(BadgeAction.class, req, rsp);
-  }
-
-  public void doRemoveSummaries(StaplerRequest req, StaplerResponse rsp) throws IOException {
-    removeActions(BadgeSummaryAction.class, req, rsp);
-  }
-
-  @SuppressWarnings("unchecked")
-  private void removeActions(Class type, StaplerRequest req, StaplerResponse rsp) throws IOException {
-    req.findAncestorObject(Job.class).checkPermission(Run.UPDATE);
-    Run run = req.findAncestorObject(Run.class);
-    if (run != null) {
-      List<? extends Action> actions = run.getAllActions();
-      List<Action> groovyActions = run.getActions(type);
-      for (Action action : groovyActions) {
-        actions.remove(action);
-      }
-      run.save();
-      rsp.sendRedirect(req.getRequestURI().substring(0, req.getRequestURI().indexOf("parent/parent")));
-    }
-  }
-
-  public void doRemoveBadge(StaplerRequest req, StaplerResponse rsp) throws IOException {
-    removeAction(BadgeAction.class, req, rsp);
-  }
-
-  public void doRemoveSummary(StaplerRequest req, StaplerResponse rsp) throws IOException {
-    removeAction(BadgeSummaryAction.class, req, rsp);
-  }
-
-  @SuppressWarnings("unchecked")
-  private void removeAction(Class type, StaplerRequest req, StaplerResponse rsp) throws IOException {
-    String index = req.getParameter("index");
-    if (index == null) {
-      throw new IOException("Missing parameter 'index'.");
-    }
-    int idx;
-    try {
-      idx = Integer.parseInt(index);
-    } catch (NumberFormatException e) {
-      throw new IOException("Invalid index: " + index);
-    }
-    req.findAncestorObject(Job.class).checkPermission(Run.UPDATE);
-    Run run = req.findAncestorObject(Run.class);
-    if (run != null) {
-      List<? extends Action> actions = run.getAllActions();
-      List<? extends Action> groovyActions = run.getActions(type);
-      if (idx < 0 || idx >= groovyActions.size()) {
-        throw new IOException("Index out of range: " + idx);
-      }
-      actions.remove(groovyActions.get(idx));
-      run.save();
-      rsp.sendRedirect(req.getRequestURI().substring(0, req.getRequestURI().indexOf("parent/parent")));
-    }
-  }
 }
