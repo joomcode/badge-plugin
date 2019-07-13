@@ -1,11 +1,11 @@
-jenkins-badge-plugin
+jenkins-build-display-html-plugin
 =========================
 
-Jenkins plugin to add badges and build summary entries from a pipeline.
+Jenkins plugin to add build summary entries from a pipeline.
 
-This plugin was forked from the [Groovy Postbuild Plugin](https://github.com/jenkinsci/groovy-postbuild-plugin) which will in future use the API from this plugin.
+This plugin was initially forked from the [jenkins-badge-plugin](https://github.com/jenkinsci/badge-plugin) which had been forked from [Groovy Postbuild Plugin](https://github.com/jenkinsci/groovy-postbuild-plugin).
 
-## createSummary
+## buildDisplayHtml
 
 Puts a badge with a short text
 
@@ -20,22 +20,16 @@ Puts a badge with a short text
 // ------------------------------------------
 
 /**
- * minimal params
+ * params
  * 
  * summaryHtml: A html which will be appended to build summary page
  */
 buildDisplayHtml(summaryHtml: <summaryHtml>)
 
-/**
- * all params
- * 
- * summaryHtml: A html which will be appended to build summary page
- * summaryHtml: (optional) A html which will be appended to build summary page
- */
-buildDisplayHtml(summaryHtml: <summaryHtml>, summaryHtml: <summaryHtml>)
 
 
-def summary = createSummary()
-summary.appendText(htmlText)
+buildDisplayHtml("<p>A paragraph</p>")
+buildDisplayHtml(summaryHtml: '<img src=... />')
+buildDisplayHtml("""simple text that is very important to see on the build summary page""")
 ```
 

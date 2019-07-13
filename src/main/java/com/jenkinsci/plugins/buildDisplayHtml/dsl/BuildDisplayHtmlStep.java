@@ -34,7 +34,6 @@ public class BuildDisplayHtmlStep extends Step {
   }
 
   @DataBoundSetter
-  @OptionalParam(description = "A html which will be appended to build summary page")
   public void setSummaryHtml(String summaryHtml) {
     this.summaryHtml = summaryHtml;
   }
