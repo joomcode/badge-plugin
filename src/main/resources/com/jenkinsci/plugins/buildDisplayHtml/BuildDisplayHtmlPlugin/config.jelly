@@ -1,3 +1,4 @@
+<?jelly escape-by-default='true'?>
 <div>
     Jenkins plugin to add build summary entries from a pipeline
 </div>
